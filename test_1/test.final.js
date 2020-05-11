@@ -34,15 +34,17 @@ function findElements(A, B, p1, p2, N){
 function solution(A,B,N){
     let aLen = A.length;
     let bLen = B.length;
+
     if(aLen !== bLen){
         return 0;
     }
-    let max = 0;
-    let res;
-    let maxRes;
-    for(let i = 0;i<aLen;i++){
 
-        res = findElements(A, B, A[i], B[i], N);
+    let len = aLen > bLen ? bLen : aLen;
+
+    let max = 0;
+    for(let i = 0;i<len;i++){
+
+        let res = findElements(A, B, A[i], B[i], N);
         let tempMax = res.count;
         if(max < tempMax){
             max = tempMax;
